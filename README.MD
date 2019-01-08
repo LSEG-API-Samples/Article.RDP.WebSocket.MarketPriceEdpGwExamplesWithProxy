@@ -178,7 +178,7 @@ I have modified The Python examples to connect through a proxy. The new optional
 The modified examples are available in ....
 
 
-### C#
+### CSharp
 There are two examples in the CSharp folder. 
 
 * **MarketPriceEdpGwAuthenticationExample**: Retrieves market-price content for TRI.N after authenticating with an authentication server and using tokens sent by that server to keep the connection alive
