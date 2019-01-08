@@ -338,7 +338,7 @@ For example:
 ## Save Fiddler Output
 The output of the selected session can be saved by right clicking on the selected session. Then select** Save -> Selected Sessions -> in ArchiveZip...**
 
-![](SaveFiddler.jpg)
+![](saveFiddler.jpg)
 
 The file type is Session Archive (.saz). The archived file can be re-opened via the Fiddler application by selecting the **File -> Load Archive...** menu.
 
