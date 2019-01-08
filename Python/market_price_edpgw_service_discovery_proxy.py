@@ -297,7 +297,8 @@ def get_sts_token(current_refresh_token):
 def print_commandline_usage_and_exit(exit_code):
     print('Usage: market_price_edpgw_service_discovery.py [--app_id app_id] '
           '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
-          '[--auth_port auth_port] [--scope scope] [--region region] [--ric ric] [--hotstandby]'
+          '[--auth_port auth_port] [--scope scope] [--region region] [--ric ric]' 
+          '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--hotstandby]'
           ' [--help]')
     sys.exit(exit_code)
 

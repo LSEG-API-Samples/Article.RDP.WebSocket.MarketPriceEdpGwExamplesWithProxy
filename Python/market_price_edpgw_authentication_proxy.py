@@ -208,13 +208,15 @@ if __name__ == "__main__":
     except getopt.GetoptError:
         print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
               '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
-              '[--auth_port auth_port] [--scope scope] [--ric ric] [--help]')
+              '[--auth_port auth_port] [--scope scope] [--ric ric]'
+              '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
         sys.exit(2)
     for opt, arg in opts:
         if opt in "--help":
             print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
                   '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
-                  '[--auth_port auth_port] [--scope scope] [--ric ric] [--help]')
+                  '[--auth_port auth_port] [--scope scope] [--ric ric]'
+                  '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
             sys.exit(0)
         elif opt in "--hostname":
             hostname = arg
