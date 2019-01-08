@@ -42,28 +42,28 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through itself. Howeve
 > * Click **Tools -> Options...** from the menu
 > * On the HTTPS tab, check both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic** boxes
 
->>> ![](Fiddler1.jpg)
+>>> ![](fiddler1.jpg)
 
 > * For the first setup, the dialog box may appear to inform about generating and trusting the Fidder Root certificate. Click the **Yes** button 
 
->>> ![](Fiddler2.jpg)
+>>> ![](fiddler2.jpg)
 
 > * Click the **Yes** button again to install this certificate to the Windows certificate store
 
->>> ![](Fiddler3.jpg)
+>>> ![](fiddler3.jpg)
 
 
 > * Click the **Connections** tab to verify the TCP port listened by Fiddler. The default port is 8888. Then click the **OK** button to close the Options window
 
->>> ![](Fiddler6.jpg)
+>>> ![](fiddler6.jpg)
 
 > * Click **File** from the menu and verify that **Capture Traffic** is checked
 
->>> ![](Fiddler7.jpg)
+>>> ![](fiddler7.jpg)
 
 >> After these steps, the Fidder Root certificate has been added to the Windows certificate store. You can run the **certmgr.msc** command to verify the Fiddler Root certificate.
 
->> ![](Fiddler4.jpg) 
+>> ![](fiddler4.jpg) 
 
 
 ### **2. Export and convert the Fiddler Root certificate file**
@@ -76,7 +76,7 @@ Please follow these steps to export and convert the Fiddler Root certificate fil
 > * Click **Tools -> Options...** from the menu
 > * On the HTTPS tab, click the **Actions** button and select **Export Root Certificate to Desktop** to export the Fiddler Root certificate file to Desktop. The file **FiddlerRoot.cer** will be saved on the Desktop. 
 
->>> ![](Fiddler5.jpg)
+>>> ![](fiddler5.jpg)
 
 * Click the **OK** button to close the Options window
 
@@ -96,13 +96,13 @@ After capturing the traffic, you may need to rmoeve the installed Fiddler Root c
 > * Click **Tools -> Options...** from the menu
 > * On the HTTPS tab, uncheck the **Decrypt HTTPS traffic** box
 
->>> ![](FiddlerUncheck.jpg)
+>>> ![](fiddlerUncheck.jpg)
 
 > * Click the Actions button and then select **Remove Interception Certificates**
->>> ![](FiddlerRemoveCert.jpg)
+>>> ![](fiddlerRemoveCert.jpg)
 
 > * Click the **Yes** button to confirm to delete the Fiddler Root certificate
->>> ![](FiddlerConfirmRemove.jpg)
+>>> ![](fiddlerConfirmRemove.jpg)
 
 * Click the **OK** button to close the **Options** window
 
