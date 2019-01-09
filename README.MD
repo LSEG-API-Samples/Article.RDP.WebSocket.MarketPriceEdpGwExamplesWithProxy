@@ -171,7 +171,7 @@ I have modified The Python examples to connect through a proxy. The new optional
 
 |Arguement Name|Description|Default Value|
 |--------------|-----------|-------------|
-|--proxy_host|The hostname or IP address of the proxy|127.0.0.1|
+|--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 |--cert_file|The certificate file used by the proxy|FiddlerRoot.crt|
 
@@ -217,7 +217,7 @@ I have modified The C# examples to connect through a proxy. The new optional arg
 
 |Arguement Name|Description|Default Value|
 |--------------|-----------|-------------|
-|--proxy_host|The hostname or IP address of the proxy|127.0.0.1|
+|--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 
 The modified examples are available at ....
@@ -294,7 +294,7 @@ I have modified the Java examples to connect through a proxy. The new optional a
 
 |Arguement Name|Description|Default Value|
 |--------------|-----------|-------------|
-|--proxy_host|The hostname or IP address of the proxy|127.0.0.1|
+|--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 
 The modified examples are available at ....
