@@ -348,7 +348,7 @@ The file type is Session Archive (.saz). The archived file can be re-opened via 
 ## Conclusion
 This article demonstrates how to configure the Fiddler to capture the data when connecting to EDP-RT. It exaplains how to modify the examples to connect to EDP-RT via the Fiddler proxy.
 
-The captured data can be decryped and displayed on the Fiddler application. Moreover, it can be saved as a session archive, and then reopened via the Fiddler applcation. 
+The captured data can be decryped and displayed on the Fiddler application. Moreover, it can be saved as a session archive, and then reopened via the Fiddler application. 
 
 ## References
 1. [Fiddler](https://www.telerik.com/fiddler)
