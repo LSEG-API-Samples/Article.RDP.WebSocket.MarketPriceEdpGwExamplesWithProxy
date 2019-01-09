@@ -126,7 +126,7 @@ There are two examples in the Python folder.
 
 Please follow these steps to modify the examples to connect to EDP through a Fiddler proxy.
 
-1. In the **get_sts_token** function of both examples, modify the **requests.post** function call to use a proxy and cerificate file by using the **proxies** and **verify** arguments.
+1. In the **get_sts_token** function of both examples, modify the **requests.post** function call to use a proxy and certificate file by using the **proxies** and **verify** arguments.
 
 ```python
         r = requests.post(url,
@@ -277,8 +277,7 @@ httpget.setConfig(config);
 Before running the examples, the Fiddler Root certificate must be imported to the Java Key Store. Typically, the Java Key Store file (cacerts) is in the **JAVA_HOME\jre\lib\security\cacerts** directory. The following command can be used to import the Fiddler Root certificate file.
 
 ```
-C:\Program Files\Java\jdk1.8.0_131\jre\lib\security>keytool -import -alias fiddl
-er -file FiddlerRoot.crt -keystore cacerts  -storepass changeit
+C:\Program Files\Java\jdk1.8.0_131\jre\lib\security>keytool -import -alias fiddler -file FiddlerRoot.crt -keystore cacerts  -storepass changeit
 
 ```
 
