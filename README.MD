@@ -354,5 +354,6 @@ The captured data can be decryped and displayed on the Fiddler application. More
 1. [Fiddler](https://www.telerik.com/fiddler)
 2. [Fiddler Wiki](https://en.wikipedia.org/wiki/Fiddler_(software))
 3. [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)
+4. [EDP Examples](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP)
 
 
