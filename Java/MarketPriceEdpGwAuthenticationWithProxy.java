@@ -81,7 +81,7 @@ public class MarketPriceEdpGwAuthenticationWithProxy {
         options.addOption(Option.builder().longOpt("scope").hasArg().desc("scope").build());
         options.addOption(Option.builder().longOpt("help").desc("help").build());
         
-        options.addOption(Option.builder().longOpt("proxy_hostname").hasArg().desc("proxy_hostname").build());
+        options.addOption(Option.builder().longOpt("proxy_host").hasArg().desc("proxy_host").build());
         options.addOption(Option.builder().longOpt("proxy_port").hasArg().desc("proxy_port").build());
 
 
