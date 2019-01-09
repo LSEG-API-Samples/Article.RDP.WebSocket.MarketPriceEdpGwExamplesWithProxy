@@ -81,7 +81,7 @@ public class MarketPriceEdpGwAuthenticationWithProxy {
         options.addOption(Option.builder().longOpt("scope").hasArg().desc("scope").build());
         options.addOption(Option.builder().longOpt("help").desc("help").build());
         
-        options.addOption(Option.builder().longOpt("proxy_host").hasArg().desc("proxy_host").build());
+        options.addOption(Option.builder().longOpt("proxy_hostname").hasArg().desc("proxy_hostname").build());
         options.addOption(Option.builder().longOpt("proxy_port").hasArg().desc("proxy_port").build());
 
 
@@ -117,8 +117,8 @@ public class MarketPriceEdpGwAuthenticationWithProxy {
         	authHostname = cmd.getOptionValue("auth_hostname");
         if(cmd.hasOption("auth_port"))
         	authPort = cmd.getOptionValue("auth_port");
-        if(cmd.hasOption("proxy_host"))
-        	proxyHost = cmd.getOptionValue("proxy_host");
+        if(cmd.hasOption("proxy_hostname"))
+        	proxyHost = cmd.getOptionValue("proxy_hostname");
         if(cmd.hasOption("proxy_port"))
         	proxyPort = cmd.getOptionValue("proxy_port");
         if(cmd.hasOption("position"))
