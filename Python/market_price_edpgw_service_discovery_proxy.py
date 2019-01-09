@@ -42,7 +42,7 @@ hotstandby = False
 session2 = None
 
 #Proxy Fiddler
-proxy_host = '127.0.0.1'
+proxy_hostname = '127.0.0.1'
 proxy_port = '8888'
 cert_file = "FiddlerRoot.crt"
 
@@ -170,7 +170,7 @@ class WebSocketSession:
         # Event loop
         wst = threading.Thread(target=self.web_socket_app.run_forever, 
                                kwargs={
-                                   'http_proxy_host':proxy_host,
+                                   'http_proxy_host':proxy_hostname,
                                    'http_proxy_port':proxy_port,
                                    'sslopt':{'ca_certs':cert_file}
                                    })
@@ -199,8 +199,8 @@ def query_service_discovery():
                          params={"transport": "websocket"},
                          verify=cert_file,
                          proxies={
-                              'http':'http://'+proxy_host+':'+proxy_port,
-                              'https':'http://'+proxy_host+':'+proxy_port
+                              'http':'http://'+proxy_hostname+':'+proxy_port,
+                              'https':'http://'+proxy_hostname+':'+proxy_port
                               })
 
     except requests.exceptions.RequestException as e:
@@ -271,8 +271,8 @@ def get_sts_token(current_refresh_token):
                           auth=(user, client_secret),
                           verify=cert_file,
                           proxies={
-                              'http':'http://'+proxy_host+':'+proxy_port,
-                              'https':'http://'+proxy_host+':'+proxy_port
+                              'http':'http://'+proxy_hostname+':'+proxy_port,
+                              'https':'http://'+proxy_hostname+':'+proxy_port
                               })  
 
     except requests.exceptions.RequestException as e:
@@ -298,7 +298,7 @@ def print_commandline_usage_and_exit(exit_code):
     print('Usage: market_price_edpgw_service_discovery.py [--app_id app_id] '
           '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
           '[--auth_port auth_port] [--scope scope] [--region region] [--ric ric]' 
-          '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--hotstandby]'
+          '[--proxy_hostname proxy_hostname] [--proxy_port proxy_port] [--cert_file cert_file] [--hotstandby]'
           ' [--help]')
     sys.exit(exit_code)
 
@@ -310,7 +310,7 @@ if __name__ == "__main__":
         opts, args = getopt.getopt(sys.argv[1:], "", ["help", "app_id=", "user=", "password=",
                                                       "position=", "auth_hostname=", "auth_port=", "scope=",
                                                       "region=", "ric=", "hotstandby",
-                                                      "proxy_host=","proxy_port=","cert_file="])
+                                                      "proxy_hostname=","proxy_port=","cert_file="])
     except getopt.GetoptError:
         print_commandline_usage_and_exit(2)
     for opt, arg in opts:
@@ -339,8 +339,8 @@ if __name__ == "__main__":
             ric = arg
         elif opt in "--hotstandby":
                 hotstandby = True
-        elif opt in "--proxy_host":
-            proxy_host = arg
+        elif opt in "--proxy_hostname":
+            proxy_hostname = arg
         elif opt in "--proxy_port":
             proxy_port = arg
         elif opt in "--cert_file":

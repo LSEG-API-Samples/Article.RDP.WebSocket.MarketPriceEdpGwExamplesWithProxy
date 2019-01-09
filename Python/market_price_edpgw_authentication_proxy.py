@@ -37,7 +37,7 @@ scope = 'trapi'
 ric = '/TRI.N'
 
 #Proxy Fiddler
-proxy_host = '127.0.0.1'
+proxy_hostname = '127.0.0.1'
 proxy_port = '8888'
 cert_file = "FiddlerRoot.crt"
 
@@ -176,8 +176,8 @@ def get_sts_token(current_refresh_token):
                           auth=(user, client_secret),
                           verify=cert_file,
                           proxies={
-                              'http':'http://'+proxy_host+':'+proxy_port,
-                              'https':'http://'+proxy_host+':'+proxy_port
+                              'http':'http://'+proxy_hostname+':'+proxy_port,
+                              'https':'http://'+proxy_hostname+':'+proxy_port
                               })  
 
     except requests.exceptions.RequestException as e:
@@ -204,19 +204,19 @@ if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "", ["help", "hostname=", "port=", "app_id=", "user=", "password=",
                                                       "position=", "auth_hostname=", "auth_port=", "scope=",
-                                                      "ric=","proxy_host=","proxy_port=","cert_file="])
+                                                      "ric=","proxy_hostname=","proxy_port=","cert_file="])
     except getopt.GetoptError:
         print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
               '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
               '[--auth_port auth_port] [--scope scope] [--ric ric]'
-              '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
+              '[--proxy_hostname proxy_hostname] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
         sys.exit(2)
     for opt, arg in opts:
         if opt in "--help":
             print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
                   '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
                   '[--auth_port auth_port] [--scope scope] [--ric ric]'
-                  '[--proxy_host proxy_host] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
+                  '[--proxy_hostname proxy_hostname] [--proxy_port proxy_port] [--cert_file cert_file] [--help]')
             sys.exit(0)
         elif opt in "--hostname":
             hostname = arg
@@ -238,8 +238,8 @@ if __name__ == "__main__":
             scope = arg
         elif opt in "--ric":
             ric = arg
-        elif opt in "--proxy_host":
-            proxy_host = arg
+        elif opt in "--proxy_hostname":
+            proxy_hostname = arg
         elif opt in "--proxy_port":
             proxy_port = arg
         elif opt in "--cert_file":
@@ -273,7 +273,7 @@ if __name__ == "__main__":
     # Event loop
     wst = threading.Thread(target=web_socket_app.run_forever, 
                            kwargs={
-                               'http_proxy_host':proxy_host,
+                               'http_proxy_host':proxy_hostname,
                                'http_proxy_port':proxy_port,
                                'sslopt':{'ca_certs':cert_file}
                                    })
