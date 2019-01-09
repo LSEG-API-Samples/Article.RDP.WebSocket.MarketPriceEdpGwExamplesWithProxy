@@ -169,13 +169,13 @@ Please follow these steps to modify the examples to connect to EDP through a Fid
 
 I have modified The Python examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings and a certificate file. 
 
-|Arguement Name|Description|Default Value|
+|Argument Name|Description|Default Value|
 |--------------|-----------|-------------|
 |--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 |--cert_file|The certificate file used by the proxy|FiddlerRoot.crt|
 
-The modified examples are available in ....
+The modified examples are available at [MarketPriceEdpGwExamplesWithProxy](https://github.com/TR-API-Samples/Article.EDPRT.WebSocket.MarketPriceEdpGwExamplesWithProxy/tree/master/Python).
 
 
 ### CSharp
@@ -215,12 +215,12 @@ C# examples don't require a certificate file because the WebSocket and web reque
 
 I have modified The C# examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings.
 
-|Arguement Name|Description|Default Value|
+|Argument Name|Description|Default Value|
 |--------------|-----------|-------------|
 |--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 
-The modified examples are available at ....
+The modified examples are available at [MarketPriceEdpGwExamplesWithProxy](https://github.com/TR-API-Samples/Article.EDPRT.WebSocket.MarketPriceEdpGwExamplesWithProxy/tree/master/CSharp).
 
 ### Java
 There are two examples in the Java folder. 
@@ -292,12 +292,12 @@ C:\Program Files\Java\jdk1.8.0_131\jre\lib\security>keytool -delete -alias fiddl
 
 I have modified the Java examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings.
 
-|Arguement Name|Description|Default Value|
+|Argument Name|Description|Default Value|
 |--------------|-----------|-------------|
 |--proxy_hostname|The hostname or IP address of the proxy|127.0.0.1|
 |--proxy_port|The TCP port listened by the proxy|8888|
 
-The modified examples are available at ....
+The modified examples are available at [MarketPriceEdpGwExamplesWithProxy](https://github.com/TR-API-Samples/Article.EDPRT.WebSocket.MarketPriceEdpGwExamplesWithProxy/tree/master/Java).
 
 ## View Fiddler Output
 
