@@ -1,4 +1,4 @@
-These examples are the modified version of [EDP CSharp Examples](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP/CSharp) with the new optional arguments with default values are introduced for proxy settings.
+These examples are the modified version of [EDP CSharp Examples](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP/CSharp) with the new optional arguments for proxy settings.
 
 |Arguement Name|Description|Default Value|
 |--------------|-----------|-------------|
