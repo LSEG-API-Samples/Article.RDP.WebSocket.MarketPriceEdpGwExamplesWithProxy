@@ -2,15 +2,15 @@
 
 ## Introduction
 
-EDP-RT (Elektron Data Platform for Real Time) is a solution for applications to access Elektron Real Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real Time content. With these technologies, accessing the Real Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or unexpected behaviors, the application should be able to provide enough information in order to investigate the issue. The common information required for investigation is message tracing. Typically, there are three methods to trace the messages.
+EDP-RT (Elektron Data Platform for Real Time) is a solution for applications to access Elektron Real Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real Time content. With these technologies, accessing the Real Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or unexpected behaviors, the application should have enough information in order to investigate the issue. Typically, the information required for investigation is message tracing. There are three methods to trace the messages.
 
-1. Implement a tracing capability inside the application by logging all messages sent and recieved through REST API and WebSocket API
+1. Implement a tracing capability inside the application by logging all messages sent and received through REST API and WebSocket API
 2. Enable tracing in the REST and WebSocket API libraries (However, the used libraries must support tracing)
 3. Use a proxy to capture the incoming and outgoing messages
 
-This article demonstates the third method by using Fiddler as a proxy to capture all incoming and outgoing messages from REST and WebSocket APIs. It also shows how to modify the examples to connect to EDP-RT through the Fiddler proxy.
+This article demonstrates the third method by using Fiddler as a proxy to capture all incoming and outgoing messages from REST and WebSocket APIs. It also shows how to modify the examples to connect to EDP-RT through the Fiddler proxy.
 
-## Table of centens
+## Table of contents
 * Fiddler
 >* Configure Fiddler
 * Modify Examples to Use a Fiddler as a Proxy
@@ -23,19 +23,19 @@ This article demonstates the third method by using Fiddler as a proxy to capture
 
 
 ## Fiddler
-Fiddler is an web debugger proxy server application which can be used to captures HTTP(S) and Web Socket traffic and log it for reviewing. It is a free tool which can be downloaded from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler). This article uses Fiddler version 5.0 for Windows. 
+Fiddler is a web debugger proxy server application which can be used to captures HTTP(S) and Web Socket traffic and log it for reviewing. It is a free tool which can be downloaded from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler). This article uses Fiddler version 5.0 for Windows. 
 
 ## Configure Fiddler
 
-If you don't have installed Fiddler on the machine, please downlod Fiddler from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler), and then install it. This section demonstrates how to:
+If you don't have installed Fiddler on the machine, please download Fiddler from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler), and then install it. This section demonstrates how to:
 
 1. Configure Fiddler to decrypt the HTTP(S) traffic
 2. Export and convert the Fiddler Root certificate file
-3. Remove the Fidder Root certificate
+3. Remove the Fiddler Root certificate
 
 ### **1. Configure Fiddler to decrypt the HTTPS traffic**
 
-Typically, Fiddler can capture the HTTP(S) traffic passed through itself. However, the client may be unable to understand the data if the traffic has been encrypted. Fiddler can be configured to install the Fidder Root certificate to intercept the HTTPS traffic and decrypt the data. Please follow these steps to configure Fiddler to capture and decrypt HTTP(S) traffic. 
+Typically, Fiddler can capture the HTTP(S) traffic passed through it. However, the client may be unable to understand the data if the traffic has been encrypted. Fiddler can be configured to install the Fiddler Root certificate to intercept the HTTPS traffic and decrypt the data. Please follow these steps to configure Fiddler to capture and decrypt HTTP(S) traffic. 
 
 
 > * Run Fiddler application
@@ -44,7 +44,7 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through itself. Howeve
 
 >>> ![](fiddler1.jpg)
 
-> * For the first setup, the dialog box may appear to inform about generating and trusting the Fidder Root certificate. Click the **Yes** button 
+> * For the first setup, the dialog box may appear to inform about generating and trusting the fiddler Root certificate. Click the **Yes** button 
 
 >>> ![](fiddler2.jpg)
 
@@ -53,7 +53,7 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through itself. Howeve
 >>> ![](fiddler3.jpg)
 
 
-> * Click the **Connections** tab to verify the TCP port listened by Fiddler. The default port is 8888. Then click the **OK** button to close the Options window
+> * Click the **Connections** tab to verify the TCP port listened by Fiddler. The default port is 8888. Then click the **OK**  button to close the Options window
 
 >>> ![](fiddler6.jpg)
 
@@ -61,14 +61,14 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through itself. Howeve
 
 >>> ![](fiddler7.jpg)
 
->> After these steps, the Fidder Root certificate has been added to the Windows certificate store. You can run the **certmgr.msc** command to verify the Fiddler Root certificate.
+>> After these steps, the fiddler Root certificate has been added to the Windows certificate store. You can run the **certmgr.msc** command to verify the Fiddler Root certificate.
 
 >> ![](fiddler4.jpg) 
 
 
 ### **2. Export and convert the Fiddler Root certificate file**
 
-For some programming languages, the Fiddler Root certifiate file is required when creating an encrypted connection through the Fiddler proxy. For example, in Python, the Fiddler Root ceritifate file is required when sending post requests and creating a web socket connection through the Fiddler proxy. For Java, the Fiddler Root certificate must be imported to the Jave key store file. For .NET programming languages, this step can be ignored because the Fiddler Root certificate has already been imported to the Windows certificate store from the previous steps.
+For some programming languages, the Fiddler Root certificate file is required when creating an encrypted connection through the Fiddler proxy. For example, in Python, the Fiddler Root certificate file is required when sending post requests and creating a web socket connection through the Fiddler proxy. For Java, the Fiddler Root certificate must be imported to the Java key store file. For .NET programming languages, this step can be ignored because the Fiddler Root certificate has already been imported to the Windows certificate store from the previous steps.
 
 Please follow these steps to export and convert the Fiddler Root certificate file to a format which can be used by Python and Java.
 
@@ -88,9 +88,9 @@ Please follow these steps to export and convert the Fiddler Root certificate fil
 
 The created **FiddlerRoot.crt** will be used in the following steps. 
 
-### **3. Remove the Fidder Root certificate**
+### **3. Remove the fiddler Root certificate**
 
-After capturing the traffic, you may need to rmoeve the installed Fiddler Root certificate from the Windows certificate store. Please follow these steps to remove the Fidder Root certificate.
+After capturing the traffic, you may need to remove the installed Fiddler Root certificate from the Windows certificate store. Please follow these steps to remove the fiddler Root certificate.
 
 > * Run Fiddler application
 > * Click **Tools -> Options...** from the menu
@@ -110,12 +110,12 @@ Then, you can run the **certmgr.msc** command to verify that the Fiddler Root ce
 
 ## Modify Examples to Use a Fiddler as a Proxy
 
-The CSharp, Java, and Python examples for connecting to EDP-RT are available in the [GitHub](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). They are console applications with commandline arguments. This section demonstrates how to modify the examples to connect to EDP-RT through a proxy. In this section, the hostname and TCP port of a Fiddler proxy is 127.0.0.1:8888 and the certificate file is **FiddlerRoot.crt** created in the previous step.
+The CSharp, Java, and Python examples for connecting to EDP-RT are available in the [GitHub](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). They are console applications with command line arguments. This section demonstrates how to modify the examples to connect to EDP-RT through a proxy. In this section, the hostname and TCP port of a Fiddler proxy is 127.0.0.1:8888 and the certificate file is **FiddlerRoot.crt** created in the previous step.
 
-The examples will be modifed in the following points:
+The examples will be modified in the following points:
 
 1. Setting a proxy when sending HTTP(S) post and get requests for authentication, token refresh, and service discovery
-2. Setting a proxy when creating a web socket connnetion for getting market data
+2. Setting a proxy when creating a web socket connection for getting market data
 
 ### Python
 There are two examples in the Python folder. 
@@ -151,9 +151,9 @@ Please follow these steps to modify the examples to connect to EDP through a Fid
                                    'sslopt':{'ca_certs':'FiddlerRoot.crt'}
                                    })
 ```
-> The **kwagrs** parameter has the **http_proxy_host** and **http_proxy_port** arguments which contain the proxy host and port settings, and the **ca_certs** arguement which contain the location of certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples
+> The **kwagrs** parameter has the **http_proxy_host** and **http_proxy_port** arguments which contain the proxy host and port settings, and the **ca_certs** argument which contain the location of certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples
 
-3. In the **market_price_edpgw_service_discovery.py** example,  modify the **requests.get** function call in the **query_service_discovery** function to use a proxy and cerificate file by using the **proxies** and **verify** arguments.
+3. In the **market_price_edpgw_service_discovery.py** example,  modify the **requests.get** function call in the **query_service_discovery** function to use a proxy and certificate file by using the **proxies** and **verify** arguments.
 
 ```python
         r = requests.get(url, 
@@ -211,7 +211,7 @@ webRequest.Proxy = proxyObject;
 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
 webRequest.Proxy = proxyObject;
 ```
-C# examples don't require a certificate file because the WebSocket and web request libraries used by .NET programming languages can acquire the cerificates installed in the Windows certificate store. Therefore, there is no need to specify it in the examples.
+C# examples don't require a certificate file because the WebSocket and web request libraries used by .NET programming languages can acquire the certificates installed in the Windows certificate store. Therefore, there is no need to specify it in the examples.
 
 I have modified The C# examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings.
 
@@ -247,7 +247,7 @@ HttpPost httppost = new HttpPost(url);
 httppost.setConfig(config);
 
 ```
-3. In both examples, configure a proxy setting of the created **WebSocketFactor** object
+3. In both examples, configure a proxy setting of the created **WebSocketFactory** object
 
 ```java
 WebSocketFactory factory = new WebSocketFactory();
@@ -274,7 +274,7 @@ HttpGet httpget = new HttpGet(new URIBuilder().setScheme("https").setHost(host).
 httpget.setConfig(config);
 ```
 
-Before running the examples, the Fiddler Root certificate must be imported to the Java KeyStore. Typically, the Java KeyStory file (cacerts) is in the **JAVA_HOME\jre\lib\security\cacerts** directory. The following command can be used to import the Fiddler Root certificate file.
+Before running the examples, the Fiddler Root certificate must be imported to the Java Key Store. Typically, the Java Key Store file (cacerts) is in the **JAVA_HOME\jre\lib\security\cacerts** directory. The following command can be used to import the Fiddler Root certificate file.
 
 ```
 C:\Program Files\Java\jdk1.8.0_131\jre\lib\security>keytool -import -alias fiddl
@@ -284,7 +284,7 @@ er -file FiddlerRoot.crt -keystore cacerts  -storepass changeit
 
 The **FiddlerRoot.crt** file was created in the previous step (Export and convert the Fiddler Root certificate file). 
 
-The Fiddler Root certificate can be removed from the Java KeyStore with the following command.
+The Fiddler Root certificate can be removed from the Java Key Store with the following command.
 
 ```
 C:\Program Files\Java\jdk1.8.0_131\jre\lib\security>keytool -delete -alias fiddler -keystore cacerts -storepass changeit
@@ -301,7 +301,7 @@ The modified examples are available at [MarketPriceEdpGwExamplesWithProxy](https
 
 ## View Fiddler Output
 
-After configuring the Fiddler and modifing the examples to connect through the Fiddler, you can view the incoming and outgoing messages via the Fiddler application. When connecting to EDP-RT, you can view the following information.
+After configuring the Fiddler and modifying the examples to connect through the Fiddler, you can view the incoming and outgoing messages via the Fiddler application. When connecting to EDP-RT, you can view the following information.
 
 **1. Authentication and Refresh Token**
 
@@ -326,8 +326,8 @@ Double click on the session to view the request and response messages. The decry
 For example:
 ![](OutServiceDisc.jpg)
 
-**4. Real-time Data via WebSocket**
-The hostname for the streaming real-time data may depend no the configuration or service discovery. It looks like amer-3.pricing.streaming.edp.thomsonreuters.com:443. The URL is /WebSocket.
+**3. Real-time Data via WebSocket**
+The hostname for the streaming real-time data may depend on the configuration or service discovery. It looks like amer-3.pricing.streaming.edp.thomsonreuters.com:443. The URL is /WebSocket.
 You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
 
 Double click on the session to view the request and response messages. The decrypted messages are displayed in the **WebScoket** tab on the right panel.
@@ -346,14 +346,14 @@ The file type is Session Archive (.saz). The archived file can be re-opened via 
 
 
 ## Conclusion
-This article demonstrates how to configure the Fiddler to capture the data when connecting to EDP-RT. It exaplains how to modify the examples to connect to EDP-RT via the Fiddler proxy.
+This article demonstrates how to configure the Fiddler to capture the data when connecting to EDP-RT. It explains how to modify the examples to connect to EDP-RT via the Fiddler proxy.
 
-The captured data can be decryped and displayed on the Fiddler application. Moreover, it can be saved as a session archive, and then reopened via the Fiddler application. 
+The captured data can be decrypted and displayed on the Fiddler application. Moreover, it can be saved as a session archive, and then reopened via the Fiddler application. 
 
 ## References
 1. [Fiddler](https://www.telerik.com/fiddler)
 2. [Fiddler Wiki](https://en.wikipedia.org/wiki/Fiddler_(software))
 3. [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)
 4. [EDP Examples](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP)
-
+5. [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
 
