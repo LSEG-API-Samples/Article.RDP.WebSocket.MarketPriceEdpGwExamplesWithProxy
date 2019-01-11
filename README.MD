@@ -2,9 +2,9 @@
 
 ## Introduction
 
-EDP-RT (Elektron Data Platform for Real Time) is a solution for applications to access Elektron Real Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real Time content. With these technologies, accessing the Real Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or unexpected behaviors, the application should have enough information in order to investigate the issue. Typically, the information required for investigation is message tracing. There are three methods to trace the messages.
+EDP-RT (Elektron Data Platform for Real-Time) is a solution for applications to access Elektron Real-Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real-Time content. With these technologies, accessing the Real-Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or unexpected behaviors, the application should have enough information in order to investigate the issue. Typically, the information required for investigation is message tracing. There are three methods to trace the messages.
 
-1. Implement a tracing capability inside the application by logging all messages sent and received through REST API and WebSocket API
+1. Implement a trace capability inside the application by logging all messages sent and received through REST API and WebSocket API
 2. Enable tracing in the REST and WebSocket API libraries (However, the used libraries must support tracing)
 3. Use a proxy to capture the incoming and outgoing messages
 
@@ -23,7 +23,7 @@ This article demonstrates the third method by using Fiddler as a proxy to captur
 
 
 ## Fiddler
-Fiddler is a web debugger proxy server application which can be used to captures HTTP(S) and Web Socket traffic and log it for reviewing. It is a free tool which can be downloaded from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler). This article uses Fiddler version 5.0 for Windows. 
+Fiddler is a web debugger proxy server application which can be used to captures HTTP(S) and Web Socket traffic and log it for review. It is a free tool which can be downloaded from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler). This article uses Fiddler version 5.0 for Windows. 
 
 ## Configure Fiddler
 
@@ -44,7 +44,7 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through it. However, t
 
 >>> ![](fiddler1.jpg)
 
-> * For the first setup, the dialog box may appear to inform about generating and trusting the fiddler Root certificate. Click the **Yes** button 
+> * For the first setup, the dialog box may appear to inform about generating and trusting the Fiddler Root certificate. Click the **Yes** button 
 
 >>> ![](fiddler2.jpg)
 
@@ -61,7 +61,7 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through it. However, t
 
 >>> ![](fiddler7.jpg)
 
->> After these steps, the fiddler Root certificate has been added to the Windows certificate store. You can run the **certmgr.msc** command to verify the Fiddler Root certificate.
+>> After these steps, the Fiddler Root certificate has been added to the Windows certificate store. You can run the **certmgr.msc** command to verify the Fiddler Root certificate.
 
 >> ![](fiddler4.jpg) 
 
@@ -80,7 +80,7 @@ Please follow these steps to export and convert the Fiddler Root certificate fil
 
 * Click the **OK** button to close the Options window
 
-> * Open the **Command Prompt** and run the following command to convert the Fiddler Root certificate file to the PEM standard. You can download the openssl binaries from [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
+> * Open the **Command Prompt** and run the following command to convert the Fiddler Root certificate file to the PEM standard. You can download the OpenSSL binaries from [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
 
 >> ```
 >> openssl x509 -inform DER -in FiddlerRoot.cer -out FiddlerRoot.crt
@@ -88,9 +88,9 @@ Please follow these steps to export and convert the Fiddler Root certificate fil
 
 The created **FiddlerRoot.crt** will be used in the following steps. 
 
-### **3. Remove the fiddler Root certificate**
+### **3. Remove the Fiddler Root certificate**
 
-After capturing the traffic, you may need to remove the installed Fiddler Root certificate from the Windows certificate store. Please follow these steps to remove the fiddler Root certificate.
+After capturing the traffic, you may need to remove the installed Fiddler Root certificate from the Windows certificate store. Please follow these steps to remove the Fiddler Root certificate.
 
 > * Run Fiddler application
 > * Click **Tools -> Options...** from the menu
@@ -110,7 +110,7 @@ Then, you can run the **certmgr.msc** command to verify that the Fiddler Root ce
 
 ## Modify Examples to Use a Fiddler as a Proxy
 
-The CSharp, Java, and Python examples for connecting to EDP-RT are available in the [GitHub](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). They are console applications with command line arguments. This section demonstrates how to modify the examples to connect to EDP-RT through a proxy. In this section, the hostname and TCP port of a Fiddler proxy is 127.0.0.1:8888 and the certificate file is **FiddlerRoot.crt** created in the previous step.
+The CSharp, Java, and Python examples for connecting to EDP-RT are available in the [GitHub](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). They are console applications with command line arguments. This section demonstrates how to modify the examples to connect to EDP-RT through a proxy. In this section, the hostname/TCP port of a Fiddler proxy is 127.0.0.1:8888 and the certificate file is **FiddlerRoot.crt** created in the previous step.
 
 The examples will be modified in the following points:
 
@@ -304,7 +304,7 @@ After configuring the Fiddler and modifying the examples to connect through the 
 
 **1. Authentication and Refresh Token**
 
-The host and URL for authentication and refresh token is api.edp.thomsonreuters.com:443 and /auth/oauth3/beta1/token, respectively. You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
+The host and URL for authentication and refresh token are api.edp.thomsonreuters.com:443 and /auth/oauth3/beta1/token, respectively. You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
 
 Double click on the session to view the request and response messages. The decrypted request and response messages are displayed on the right panel.
 
@@ -318,7 +318,7 @@ For example:
 
 **2. Service Discovery**
 
-The host and URL for authentication and refresh token is api.edp.thomsonreuters.com:443 and /streaming/pricing/v1/?transport=websocket, respectively. You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
+The host and URL for authentication and refresh token are api.edp.thomsonreuters.com:443 and /streaming/pricing/v1/?transport=websocket, respectively. You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
 
 Double click on the session to view the request and response messages. The decrypted request and response messages are displayed on the right panel.
 
@@ -329,13 +329,13 @@ For example:
 The hostname for the streaming real-time data may depend on the configuration or service discovery. It looks like amer-3.pricing.streaming.edp.thomsonreuters.com:443. The URL is /WebSocket.
 You can use **Edit -> Find Sessions ...** (Ctrl+F) to find this session.
 
-Double click on the session to view the request and response messages. The decrypted messages are displayed in the **WebScoket** tab on the right panel.
+Double click on the session to view the request and response messages. The decrypted messages are displayed in the **WebSocket** tab on the right panel.
 
 For example:
 ![](OutWebSocket.jpg)
 
 ## Save Fiddler Output
-The output of the selected session can be saved by right clicking on the selected session. Then select** Save -> Selected Sessions -> in ArchiveZip...**
+The output of the selected session can be saved by right-clicking on the selected session. Then select** Save -> Selected Sessions -> in ArchiveZip...**
 
 ![](saveFiddler.jpg)
 
