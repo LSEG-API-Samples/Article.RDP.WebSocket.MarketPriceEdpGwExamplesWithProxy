@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "MarketPriceEdpGwServiceDiscoveryExample": {
-      "commandName": "Project",
-      "commandLineArgs": "--auth_hostname api.edp.thomsonreuters.com --auth_port 443 --user GE-A-01103867-3-1176 --password epZCcdpxC3cfVLXw --proxy_port 8889"
-    }
-  }
-}
