@@ -367,6 +367,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:8888 [/127.0
 To solve this error, please verify that the Fiddler is configured and run properly and the examples use the correct IP address (--proxy_hostname) and TCP port (--proxy_port) configured in the Fiddler proxy.
 
 **2. The certificate is invalid or unavailable**
+
 If the certificate is invalid or unavailable the following exceptions should be displayed.
 
 * **Python**
@@ -376,7 +377,7 @@ com', port=443): Max retries exceeded with url: /auth/oauth2/beta1/token (Caused
 or(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:833)'),
 ))
 ```
-To solve this issue, please make sure the **--cert_file** configuration is set with the converted Fiddler certificate file. The conversion process is avaiable in the **Export and convert the Fiddler Root certificate file** section.
+To solve this issue, please make sure the **--cert_file** configuration is set with the converted Fiddler certificate file. The conversion process is available in the **Export and convert the Fiddler Root certificate file** section.
 
 * **CSharp**
 ```
@@ -394,13 +395,13 @@ javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: 
 ```
 To solve this issue, the Fiddler Root certificate (FiddlerRoot.crt) must be imported to the Java Key Store. For more information, please refer to the **Modify Examples to Use a Fiddler as a Proxy -> Java** section.
 
-**3. The captured WebSocket data is unreadable**
+**3. The captured Web Socket data is unreadable**
 
 The unreadable WebSocket data in Fiddler looks like:
 
 ![](compressed.jpg)
 
-To solve this issue, the compression extension must be removed when creating a WebSocket connection. For example, in the Java examples, the **WebSocketExtension.PERMESSAGE_DEFLAGE** must be removed. 
+To solve this issue, the compression extension must be removed when creating a Web Socket connection. For example, in the Java examples, the **WebSocketExtension.PERMESSAGE_DEFLAGE** must be removed. 
 
 ```java
 _websocket = websocketFactory.createSocket(_url)
