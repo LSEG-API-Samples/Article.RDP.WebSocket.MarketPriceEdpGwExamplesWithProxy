@@ -343,7 +343,7 @@ The file type is Session Archive (.saz). The archived file can be re-opened via 
 
 ![](LoadFiddler.jpg)
 
-## Troubleshoot
+## Troubleshooting
 
 **1. Unable to connect to Fiddler proxy**
 
@@ -397,6 +397,7 @@ To solve this issue, the Fiddler Root certificate (FiddlerRoot.crt) must be impo
 **3. The captured WebSocket data is unreadable**
 
 The unreadable WebSocket data in Fiddler looks like:
+
 ![](compressed.jpg)
 
 To solve this issue, the compression extension must be removed when creating a WebSocket connection. For example, in the Java examples, the **WebSocketExtension.PERMESSAGE_DEFLAGE** must be removed. 
