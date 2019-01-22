@@ -28,7 +28,7 @@ Fiddler is a web debugger proxy server application which can be used to captures
 
 ## Configure Fiddler
 
-If you don't have installed Fiddler on the machine, please download Fiddler from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler), and then install it. This section demonstrates how to:
+If you don't have Fiddler installed on the machine, please download Fiddler from [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler), and then install it. This section demonstrates how to:
 
 1. Configure Fiddler to decrypt the HTTP(S) traffic
 2. Export and convert the Fiddler Root certificate file
