@@ -347,7 +347,7 @@ The file type is Session Archive (.saz). The archived file can be re-opened via 
 
 **1. Unable to connect to Fiddler proxy**
 
-When the examples are unable to connect to Fiddler proxy, you should see the following errors:
+When the examples are unable to connect to Fiddler proxy, the following exceptions should be displayed.
 
 * **Python**
 ```
@@ -364,11 +364,11 @@ EDP-GW authentication failure:
 org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused: connect
 ```
 
-To solve this error, please verify that the Fiddler is configured and run properly and the examples use the correct IP address (--proxy_hostname) and TCP port (--proxy_port) configured in the Fiddler proxy.
+To solve this issue, please verify that the Fiddler is configured and run properly and the examples use the correct IP address (--proxy_hostname) and TCP port (--proxy_port) configured in the Fiddler proxy.
 
 **2. The certificate is invalid or unavailable**
 
-If the certificate is invalid or unavailable the following exceptions should be displayed.
+If the certificate is invalid or unavailable, the following exceptions should be displayed.
 
 * **Python**
 ```
@@ -397,8 +397,7 @@ To solve this issue, the Fiddler Root certificate (FiddlerRoot.crt) must be impo
 
 **3. The captured Web Socket data is unreadable**
 
-The unreadable WebSocket data in Fiddler looks like:
-
+The unreadable Web Socket data in Fiddler looks like:
 ![](compressed.jpg)
 
 To solve this issue, the compression extension must be removed when creating a Web Socket connection. For example, in the Java examples, the **WebSocketExtension.PERMESSAGE_DEFLAGE** must be removed. 
