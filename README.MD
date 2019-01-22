@@ -398,6 +398,7 @@ To solve this issue, the Fiddler Root certificate (FiddlerRoot.crt) must be impo
 **3. The captured Web Socket data is unreadable**
 
 The unreadable Web Socket data in Fiddler looks like:
+
 ![](compressed.jpg)
 
 To solve this issue, the compression extension must be removed when creating a Web Socket connection. For example, in the Java examples, the **WebSocketExtension.PERMESSAGE_DEFLAGE** must be removed. 
