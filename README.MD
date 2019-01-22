@@ -236,7 +236,7 @@ Please follow these steps to modify the examples to connect to EDP through a Fid
 1. In both examples, create a new **HttpHost** object with the proxy settings and then build a custom **RequestConfig** with this proxy
 
 ```java
-HttpHost proxy = new HttpHost("127.0.0.1", 8889, "http");
+HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 RequestConfig config = RequestConfig.custom()
    .setProxy(proxy)
    .build();
