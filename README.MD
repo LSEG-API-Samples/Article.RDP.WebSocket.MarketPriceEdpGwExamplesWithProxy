@@ -2,7 +2,7 @@
 
 ## Introduction
 
-EDP-RT (Elektron Data Platform for Real-Time) is a solution for applications to access Elektron Real-Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real-Time content. With these technologies, accessing the Real-Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or unexpected behaviors, the application should have enough information in order to investigate the issue. Typically, the information required for investigation is message tracing. There are three methods to trace the messages.
+EDP-RT (Elektron Data Platform for Real-Time) is a solution for applications to access Elektron Real-Time content via Cloud technologies. To use EDP-RT, developers need to implement an application with REST API for authentication and WebSocket API for Real-Time content. With these technologies, accessing the Real-Time content from Cloud is quite easy. However, when observing problems, such as connection lost, incorrect content, or other unexpected behaviors, the application should have enough information in order to investigate the issue. Typically, the information required for investigation is message tracing. There are three methods to trace the messages.
 
 1. Implement a trace capability inside the application by logging all messages sent and received through REST API and WebSocket API
 2. Enable tracing in the REST and WebSocket API libraries (However, the used libraries must support tracing)
