@@ -19,6 +19,7 @@ This article demonstrates the third method by using Fiddler as a proxy to captur
 >* Java
 * View Fiddler Output
 * Save Fiddler Output
+* Troubleshooting
 * Conclusion
 
 
