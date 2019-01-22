@@ -69,7 +69,7 @@ Typically, Fiddler can capture the HTTP(S) traffic passed through it. However, t
 
 ### **2. Export and convert the Fiddler Root certificate file**
 
-For some programming languages, the Fiddler Root certificate file is required when creating an encrypted connection through the Fiddler proxy. For example, in Python, the Fiddler Root certificate file is required when sending post requests and creating a web socket connection through the Fiddler proxy. For Java, the Fiddler Root certificate must be imported to the Java key store file. For .NET programming languages, this step can be ignored because the Fiddler Root certificate has already been imported to the Windows certificate store from the previous steps.
+For some programming languages, the Fiddler Root certificate file is required when creating an encrypted connection through the Fiddler proxy. For example, in Python, the Fiddler Root certificate file is required when sending post requests and creating a web socket connection through the Fiddler proxy. For Java, the Fiddler Root certificate must be imported to the Java key store file. For .NET programming languages, this step can be ignored because the Fiddler Root certificate has already been imported to the Windows certificate store when configuring Fiddler to decrypt the HTTPS traffic.
 
 Please follow these steps to export and convert the Fiddler Root certificate file to a format which can be used by Python and Java.
 
