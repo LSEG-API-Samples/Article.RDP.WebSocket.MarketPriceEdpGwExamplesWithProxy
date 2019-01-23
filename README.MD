@@ -121,7 +121,7 @@ The examples will be modified in the following points:
 ### Python
 There are two examples in the Python folder. 
 
-* The **market_price_edpgw_authentication.py** example demonstrates authenticating via an HTTPS request to the EDP-RT Gateway using a username and password. It then opens a WebSocket to the ERT service using the specified hostname, logs in with the retrieved token, and requests market content.
+* The **market_price_edpgw_authentication.py** example demonstrates authenticating via an HTTPS request to the EDP Gateway using a username and password. It then opens a WebSocket to the EDP-RT service using the specified hostname, logs in with the retrieved token, and requests market content
 
 * The **market_price_edpgw_service_discovery.py** example demonstrates authenticating via an HTTPS request to the EDP Gateway using a username and password, and discovering endpoints of the EDP-RT service via an HTTPS request to EDP-RT Service Discovery. The example then opens a WebSocket to an endpoint, logs in with the retrieved token, and requests market content
 
@@ -140,7 +140,7 @@ Please follow these steps to modify the examples to connect to EDP through a Fid
                               'https':'http://127.0.0.1:8888'
                               })  
 ```
-> The value of the **verify** argument is the location of the certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples. The value of the **proxies** argument is a proxy setting for the HTTP(S) connection. 
+> The value of the **verify** argument is the location of the certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples. The value of the **proxies** argument is proxy settings for the HTTP(S) connection. 
 
 2. In both examples, modify the code when running the web socket on a new thread by using the following **kwargs** arguments.
 
@@ -166,9 +166,9 @@ Please follow these steps to modify the examples to connect to EDP through a Fid
                              'https':'http://127.0.0.1:8888'
                              })
 ```
-> The value of the **verify** argument is the location of the certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples. The value of the **proxies** argument is a proxy setting for the HTTP(S) connection. 
+> The value of the **verify** argument is the location of the certificate file. In this case, the **FiddlerRoot.crt** file is in the working directory of the examples. The value of the **proxies** argument is proxy settings for the HTTP(S) connection. 
 
-I have modified The Python examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings and a certificate file. 
+I have modified the Python examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings and a certificate file. 
 
 |Argument Name|Description|Default Value|
 |--------------|-----------|-------------|
@@ -188,7 +188,7 @@ There are two examples in the CSharp folder.
 
 Please follow these steps to modify the examples to connect to EDP through a Fiddler proxy.
 
-1. In both examples, create a new WebProxy object with the proxy settings. 
+1. In both examples, create a new WebProxy object with proxy settings. 
 
 ```csharp
 WebProxy proxyObject = new WebProxy("http://127.0.0.1:8888/");
@@ -214,7 +214,7 @@ webRequest.Proxy = proxyObject;
 ```
 C# examples don't require a certificate file because the WebSocket and web request libraries used by .NET programming languages can acquire the certificates installed in the Windows certificate store. Therefore, there is no need to specify it in the examples.
 
-I have modified The C# examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings.
+I have modified the C# examples to connect through a proxy. The new optional arguments with default values are introduced for proxy settings.
 
 |Argument Name|Description|Default Value|
 |--------------|-----------|-------------|
@@ -226,14 +226,14 @@ The modified examples are available at [MarketPriceEdpGwExamplesWithProxy](https
 ### Java
 There are two examples in the Java folder. 
 
-* The **MarketPriceEdpGwAuthentication** example demonstrates authenticating via an HTTPS request to the EDP-RT Gateway using a username and password. It then opens a WebSocket to the ERT service using the specified hostname, logs in with the retrieved token, and requests market content.
+* The **MarketPriceEdpGwAuthentication** example demonstrates authenticating via an HTTPS request to the EDP-RT Gateway using a username and password. It then opens a WebSocket to the ERT service using the specified hostname, logs in with the retrieved token, and requests market content
 
 
 * The **MarketPriceEdpGwServiceDiscovery** example demonstrates authenticating via an HTTPS request to the EDP Gateway using a username and password, and discovering endpoints of the EDP-RT service via an HTTPS request to EDP-RT Service Discovery. The example then opens a WebSocket to an endpoint, logs in with the retrieved token, and requests market content
 
 Please follow these steps to modify the examples to connect to EDP through a Fiddler proxy.
 
-1. In both examples, create a new **HttpHost** object with the proxy settings and then build a custom **RequestConfig** with this proxy
+1. In both examples, create a new **HttpHost** object with proxy settings and then build a custom **RequestConfig** with this proxy
 
 ```java
 HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
@@ -248,7 +248,7 @@ HttpPost httppost = new HttpPost(url);
 httppost.setConfig(config);
 
 ```
-3. In both examples, configure a proxy setting of the created **WebSocketFactory** object
+3. In both examples, configure proxy settings of the created **WebSocketFactory** object
 
 ```java
 WebSocketFactory factory = new WebSocketFactory();
@@ -413,6 +413,7 @@ _websocket = websocketFactory.createSocket(_url)
    });
    //.addExtension(WebSocketExtension.PERMESSAGE_DEFLATE);
 ```
+
 
 ## Conclusion
 This article demonstrates how to configure the Fiddler to capture the data when connecting to EDP-RT. It explains how to modify the examples to connect to EDP-RT via the Fiddler proxy.
